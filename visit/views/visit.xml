@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Visit Sequence -->
+	<record id="visit_sequence" model="ir.sequence">
+		<field name="name">Visit Sequence</field>
+		<field name="code">visit</field>
+		<field name="active">TRUE</field>
+		<field name="prefix">V</field>
+		<field name="number_increment">1</field>
+		<field name="padding">5</field>
+		<field name="implementation">standard</field>
+		<field name="company_id" eval="False"/>
+	</record>
+
+	<!-- Visit Tree view -->
+	<record id="visit_tree_view_id" model="ir.ui.view">
+		<field name="name">visit.tree</field>
+		<field name="model">visit</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="customer"/>
+				<field name="obj"/>
+				<field name="start_datetime"/>
+				<field name="end_datetime"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Visit Form view -->
+	<record id="visit_form_view_id" model="ir.ui.view">
+		<field name="name">visit.form</field>
+		<field name="model">visit</field>
+		<field name="arch" type="xml">
+			<form>
+				<header></header>
+				<sheet string="Visit">
+					<div class="oe_title">
+						<h1><field name="name" readonly="1"/></h1>
+					</div>
+					<group>
+						<group>
+							<field name="customer"/>
+							<field name="obj"/>
+							<field name="result"/>
+						</group>
+						<group>
+							<field name="start_datetime"/>
+							<field name="end_datetime"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- Action of menu -->
+	<record id="action_visit_tree_view_id" model="ir.actions.act_window">
+		<field name="name">Visits</field>
+		<field name="res_model">visit</field>
+		<field name="view_mode">tree,form,kanban</field>
+		<field name="view_id" ref="visit_tree_view_id"/>
+		<field name="domain">[]</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				You have not created a visit document yet.
+			</p>
+		</field>
+	</record>
+
+	<menuitem name="Visits" id="visit_menu" parent="sale.sale_order_menu" action="action_visit_tree_view_id"/>
+</odoo>

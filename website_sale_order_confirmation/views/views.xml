@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+  <record id="backend_shop_sale_template" model="mail.template">
+    <field name="name">BACKEND SHOP SALE TEMPLATE</field>
+    <!-- <field name="model_id" ref="sale.order" /> -->
+    <field name="auto_delete" eval="True"/>
+    <!-- <field name="email_from">${(object.res_user_id.email}</field> -->
+    <field name="email_to">matthieu@phidia.onmicrosoft.com</field>
+    <field name="report_template" ref="sale.report_saleorder"/>
+    <field name="subject">(SHOPSALE) [${object.company_id.name}] :  Nouvelle commande N° ${object.name or 'n/a' }</field>
+    <field name="body_html"><![CDATA[
+
+      <h1>Modèle d'email</h1> 
+      
+      ]]>
+      </field>
+    <field name="report_name">Devis</field>
+  </record>
+
+  <!-- <record id="email_template" model="mail.template">
+    <field name="name">EMAIL TEMPLATE NAME</field>
+    <field name="model_id"ref="module_name.model_sample.mail">
+    <field name="auto_delete" eval="True"/>
+    <field name="email_from">${(object.res_user_id.email}</field>
+    <field name="email_to">${object.client_name.email}</field>
+    <field name="report_template" ref="action_example_pdf"/>
+    <field name="subject">${object.amc}</field>
+    <field name="body_html">
+    <![CDATA[
+    <p>Dear ${(object.client_name.name)},
+    <br/>
+    <br/>
+    Good job, this is our first e-mail template!<br/>
+    </p>
+    Regards,<br/>
+    ${(object.company_id.name)} ]]></field>
+  </record> -->
+   
+  </data>
+</odoo>

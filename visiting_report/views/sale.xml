@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="visit_tab_in_saleorder" model="ir.ui.view">
+			<field name="name">visit.tab.form.inherited</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//page[@name='other_information']" position="after">
+					<page string="Visiting Report" name="visiting_report">
+						<group>
+							<group>
+								<field name="visit_object"/>
+								<field name="visit_start"/>
+								<field name="visit_end"/>
+							</group>
+							<group>
+								<field name="visit_result"/>
+							</group>
+							<group></group>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>
