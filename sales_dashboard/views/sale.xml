@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- Settings of graph view -->
+		<record id="custom_sale_dashboard" model="ir.ui.view">
+			<field name="name">custom.sale.dashboard.form.inherited</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_sale_order_graph"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="replace">
+					<field name="state"/>
+				</xpath>
+				<xpath expr="//graph" position="attributes">
+					<attribute name="type">pie</attribute>
+				</xpath>
+			</field>
+		</record>
+
+		<!-- Add menu for dashboard -->
+		<record id="action_sale_dashboard" model="ir.actions.act_window">
+			<field name="name">Dashboard</field>
+			<field name="res_model">sale.order</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="sale.view_sale_order_graph"/>
+			<field name="domain">[]</field>
+		</record>
+	</data>
+
+	<menuitem name="Dashboard" id="sale_dashboard_menu" parent="sale.sale_order_menu" sequence="0" action="action_sale_dashboard"/>
+</odoo>
