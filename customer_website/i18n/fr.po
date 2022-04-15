@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* customer_website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-14 21:36+0000\n"
+"PO-Revision-Date: 2022-04-14 21:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: customer_website
+#: model:ir.model.fields,field_description:customer_website.field_website__quotation_customer
+msgid "Clients"
+msgstr ""
+
+#. module: customer_website
+#: model:ir.model,name:customer_website.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: customer_website
+#: model_terms:ir.ui.view,arch_db:customer_website.add_redirection_button
+msgid "Go to website"
+msgstr "Aller vers le site web"
+
+#. module: customer_website
+#: model:ir.model.fields,field_description:customer_website.field_res_users__customer_in_quotation_id
+msgid "ID du Client en cours de saisie de devis"
+msgstr ""
+
+#. module: customer_website
+#: model:ir.model.fields,field_description:customer_website.field_res_users__customer_in_quotation_name
+msgid "Nom du Client en cours de saisie de devis"
+msgstr ""
+
+#. module: customer_website
+#: model:ir.model,name:customer_website.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: customer_website
+#: model:ir.model,name:customer_website.model_website
+msgid "Website"
+msgstr "Site Web"

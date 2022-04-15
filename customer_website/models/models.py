@@ -18,4 +18,12 @@ class customer_on_quotation(models.Model) :
 
     customer_in_quotation_id = fields.Integer(string="ID du Client en cours de saisie de devis")
     customer_in_quotation_name = fields.Char(string="Nom du Client en cours de saisie de devis")
-    
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    def go_to_website(self):
+        return {
+            'url' : "/website/customer_selection?id=%s" % self.id,
+            'type' : 'ir.actions.act_url'
+        }    
