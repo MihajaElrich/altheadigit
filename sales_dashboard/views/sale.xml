@@ -26,5 +26,5 @@
 		</record>
 	</data>
 
-	<menuitem name="Dashboard" id="sale_dashboard_menu" parent="sale.sale_order_menu" sequence="0" action="action_sale_dashboard"/>
+	<menuitem name="Dashboard" id="sale_dashboard_menu" parent="sale.sale_order_menu" sequence="2" action="action_sale_dashboard"/>
 </odoo>
