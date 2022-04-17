@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-15 20:10+0000\n"
-"PO-Revision-Date: 2022-04-15 20:10+0000\n"
+"POT-Creation-Date: 2022-04-17 18:13+0000\n"
+"PO-Revision-Date: 2022-04-17 18:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,32 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sales_dashboard
-#: model:ir.actions.act_window,name:sales_dashboard.action_sale_dashboard
-#: model:ir.ui.menu,name:sales_dashboard.sale_dashboard_menu
+#: model:ir.ui.menu,name:sales_dashboard.sales_dashboard_menu
 msgid "Dashboard"
 msgstr "Tableau de bord"
+
+#. module: sales_dashboard
+#: model:ir.ui.menu,name:sales_dashboard.orders_dashboard_menu
+msgid "Orders"
+msgstr "Commandes"
+
+#. module: sales_dashboard
+#: model:ir.actions.act_window,name:sales_dashboard.action_orders_dashboard
+msgid "Orders Dashboard"
+msgstr "Tableau de bord des commandes"
 
 #. module: sales_dashboard
 #: model:ir.model,name:sales_dashboard.model_sale_order
 msgid "Sales Order"
 msgstr "Bon de commande"
+
+#. module: sales_dashboard
+#: model:ir.ui.menu,name:sales_dashboard.salesperson_dashboard_menu
+msgid "Salesperson"
+msgstr "Vendeurs"
+
+#. module: sales_dashboard
+#: model:ir.actions.act_window,name:sales_dashboard.action_salesperson_dashboard
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.salesperson_graph_view
+msgid "Salesperson Dashboard"
+msgstr "Tableau de bord des vendeurs"

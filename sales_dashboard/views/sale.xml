@@ -16,15 +16,37 @@
 			</field>
 		</record>
 
-		<!-- Add menu for dashboard -->
-		<record id="action_sale_dashboard" model="ir.actions.act_window">
-			<field name="name">Dashboard</field>
+		<record id="salesperson_graph_view" model="ir.ui.view">
+			<field name="name">salesperson.graph.view</field>
+			<field name="model">sale.order</field>
+			<field name="arch" type="xml">
+				<graph string="Salesperson Dashboard" sample="1">
+					<field name="user_id"/>
+					<field name="partner_id"/>
+				</graph>
+			</field>
+		</record>
+
+		<!-- Add menu for Orders dashboard -->
+		<record id="action_orders_dashboard" model="ir.actions.act_window">
+			<field name="name">Orders Dashboard</field>
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="sale.view_sale_order_graph"/>
 			<field name="domain">[]</field>
 		</record>
+
+		<!-- Add menu for Salesperson dashboard -->
+		<record id="action_salesperson_dashboard" model="ir.actions.act_window">
+			<field name="name">Salesperson Dashboard</field>
+			<field name="res_model">sale.order</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="sales_dashboard.salesperson_graph_view"/>
+			<field name="domain">[]</field>
+		</record>
 	</data>
 
-	<menuitem name="Dashboard" id="sale_dashboard_menu" parent="sale.sale_order_menu" sequence="2" action="action_sale_dashboard"/>
+	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_order_menu" sequence="2"/>
+	<menuitem name="Orders" id="orders_dashboard_menu" parent="sales_dashboard_menu" action="action_orders_dashboard"/>
+	<menuitem name="Salesperson" id="salesperson_dashboard_menu" parent="sales_dashboard_menu" action="action_salesperson_dashboard"/>
 </odoo>
