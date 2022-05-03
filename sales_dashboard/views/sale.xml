@@ -15,14 +15,14 @@
 				</xpath>
 			</field>
 		</record>
-
+		
 		<record id="salesperson_graph_view" model="ir.ui.view">
 			<field name="name">salesperson.graph.view</field>
-			<field name="model">sale.order</field>
+			<field name="model">res.users</field>
 			<field name="arch" type="xml">
 				<graph string="Salesperson Dashboard" sample="1">
 					<field name="user_id"/>
-					<field name="partner_id"/>
+					<field name="sale_order_count"/>
 				</graph>
 			</field>
 		</record>
