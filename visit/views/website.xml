@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<record id="website_visit_report" model="ir.ui.view">
+			<field name="name">visit.website.form.inherited</field>
+			<field name="model">website</field>
+			<field name="inherit_id" ref="website_sale.payment"/>
+			<field name="arch" type="xml">
+				<xpath expr="//div[hasclass('oe_cart')]/div[1]" position="before">
+                    <div id="visit" class="mb-3">
+                      <div class='card'>Lorem Ipsum Dolor Sit Amet</div>
+                    </div>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

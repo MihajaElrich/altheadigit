@@ -14,6 +14,7 @@
 	"data" : [
 		"security/ir.model.access.csv",
 		"views/visit.xml",
+		"views/website.xml",
 	],
 	"application" : True,
 	"installable" : True,
