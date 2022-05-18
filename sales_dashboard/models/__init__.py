@@ -1,1 +1,1 @@
-from . import sale, users
+from . import sale

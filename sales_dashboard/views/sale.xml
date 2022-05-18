@@ -1,53 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<data>
-		<!-- Settings of graph view -->
-		<record id="custom_sale_dashboard" model="ir.ui.view">
-			<field name="name">custom.sale.dashboard.form.inherited</field>
+	<data>		
+		<!-- Orders State Graph View -->
+		<record id="view_orders_state_graph" model="ir.ui.view">
+			<field name="name">Orders State</field>
 			<field name="model">sale.order</field>
-			<field name="inherit_id" ref="sale.view_sale_order_graph"/>
 			<field name="arch" type="xml">
-				<xpath expr="//field[@name='partner_id']" position="replace">
+				<graph string="Orders State" type="pie">
 					<field name="state"/>
-				</xpath>
-				<xpath expr="//graph" position="attributes">
-					<attribute name="type">pie</attribute>
-				</xpath>
+					<field name="amount_total" type="measure"/>
+				</graph>
 			</field>
 		</record>
 		
-		<record id="salesperson_graph_view" model="ir.ui.view">
-			<field name="name">salesperson.graph.view</field>
-			<field name="model">res.users</field>
+		<!-- Customer Activity Graph View -->
+		<record id="view_customer_activity_graph" model="ir.ui.view">
+			<field name="name">Customer Activity</field>
+			<field name="model">sale.order</field>
+			<field name="arch" type="xml">
+				<graph string="Customer Activity">
+					<field name="user_id"/>
+					<field name="partner_id"/>
+				</graph>
+			</field>
+		</record>
+		
+		<!-- Orders of the Month Graph View -->
+		<record id="view_month_order_graph" model="ir.ui.view">
+			<field name="name">Orders of the Month</field>
+			<field name="model">sale.order</field>
 			<field name="arch" type="xml">
 				<graph string="Salesperson Dashboard">
 					<field name="user_id"/>
-					<field name="sale_order_count"/>
-					<field name="monthly_amount"/>
+					<field name="amount_total" type="measure"/>
 				</graph>
 			</field>
 		</record>
 
-		<!-- Add menu for Orders dashboard -->
-		<record id="action_orders_dashboard" model="ir.actions.act_window">
-			<field name="name">Orders Dashboard</field>
+		<!-- Action for Orders State Graph View -->
+		<record id="action_orders_state_graph" model="ir.actions.act_window">
+			<field name="name">Orders State</field>
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
-			<field name="view_id" ref="sale.view_sale_order_graph"/>
+			<field name="view_id" ref="view_orders_state_graph"/>
 			<field name="domain">[]</field>
 		</record>
 
-		<!-- Add menu for Salesperson dashboard -->
-		<record id="action_salesperson_dashboard" model="ir.actions.act_window">
-			<field name="name">Salesperson Dashboard</field>
+		<!-- Action for Customer Activity Graph View -->
+		<record id="action_customer_activity_graph" model="ir.actions.act_window">
+			<field name="name">Customer Activity</field>
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
-			<field name="view_id" ref="sales_dashboard.salesperson_graph_view"/>
+			<field name="view_id" ref="sales_dashboard.view_customer_activity_graph"/>
 			<field name="domain">[]</field>
+		</record>
+
+		<!-- Action for Orders of the Month Graph View -->
+		<record id="action_month_orders_graph" model="ir.actions.act_window">
+			<field name="name">Orders of the Month</field>
+			<field name="res_model">sale.order</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="view_month_order_graph"/>
+			<field name="domain">[('order_of_month', '=', True)]</field>
+		</record>
+
+		<!-- Dashboard view -->
+		<record model="ir.ui.view" id="sales_dashboard_view">
+			<field name="name">Dashboard</field>
+			<field name="model">board.board</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Dashboard">
+					<board style="1">
+						<column>
+							<action name="%(sales_dashboard.action_orders_state_graph)d" string="Orders State"/>
+							<action name="%(sales_dashboard.action_customer_activity_graph)d" string="Customer Activity"/>
+							<action name="%(sales_dashboard.action_month_orders_graph)d" string="Orders of The Month"/>
+						</column>
+					</board>
+				</form>
+			</field>
+		</record>
+
+		<!-- Action to open the dashboard -->
+		<record model="ir.actions.act_window" id="open_dashboard_action">
+			<field name="name">Dashboard</field>
+			<field name="res_model">board.board</field>
+			<field name="view_mode">form</field>
+			<field name="usage">menu</field>
+			<field name="view_id" ref="sales_dashboard_view"/>
 		</record>
 	</data>
 
-	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_order_menu" sequence="2"/>
-	<menuitem name="Orders" id="orders_dashboard_menu" parent="sales_dashboard_menu" action="action_orders_dashboard"/>
-	<menuitem name="Salesperson" id="salesperson_dashboard_menu" parent="sales_dashboard_menu" action="action_salesperson_dashboard"/>
+	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_menu_root" sequence="1" action="open_dashboard_action"/>
+	<!-- <menuitem name="Orders State" id="orders_state_dashboard_menu" parent="sales_dashboard_menu" action="action_orders_state_graph"/>
+	<menuitem name="Orders of the Month" id="month_orders_dashboard_menu" parent="sales_dashboard_menu" action="action_month_orders_graph"/>
+	<menuitem name="Salesperson" id="customer_activity_menu" parent="sales_dashboard_menu" action="action_customer_activity_graph"/> -->
 </odoo>
