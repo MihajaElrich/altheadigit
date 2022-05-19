@@ -13,6 +13,7 @@
 	"depends" : ["sale"],
 	"data" : [
 		"views/sale.xml",
+		"views/website.xml",
 	],
 	"application" : True,
 	"installable" : True,
