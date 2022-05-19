@@ -36,6 +36,18 @@
 				</graph>
 			</field>
 		</record>
+		
+		<!-- Orders Evolution Graph View -->
+		<record id="view_orders_evolution_graph" model="ir.ui.view">
+			<field name="name">Orders Evolution</field>
+			<field name="model">sale.order</field>
+			<field name="arch" type="xml">
+				<graph string="Orders Evolution" type="line">
+					<field name="date_order"/>
+					<field name="amount_total" type="measure"/>
+				</graph>
+			</field>
+		</record>
 
 		<!-- Action for Orders State Graph View -->
 		<record id="action_orders_state_graph" model="ir.actions.act_window">
@@ -64,6 +76,15 @@
 			<field name="domain">[('order_of_month', '=', True)]</field>
 		</record>
 
+		<!-- Action for Orders Evolution Graph View -->
+		<record id="action_order_evolution_graph" model="ir.actions.act_window">
+			<field name="name">Orders Evolution</field>
+			<field name="res_model">sale.order</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="view_orders_evolution_graph"/>
+			<field name="domain">[]</field>
+		</record>
+
 		<!-- Dashboard view -->
 		<record model="ir.ui.view" id="sales_dashboard_view">
 			<field name="name">Dashboard</field>
@@ -71,10 +92,19 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Dashboard">
-					<board style="1">
+					<board style="1-2">
 						<column>
 							<action name="%(sales_dashboard.action_orders_state_graph)d" string="Orders State"/>
+						</column>
+						<column>
 							<action name="%(sales_dashboard.action_customer_activity_graph)d" string="Customer Activity"/>
+						</column>
+					</board>
+					<board style="1-2">
+						<column>
+							<action name="%(sales_dashboard.action_order_evolution_graph)d" string="Orders Evolution"/>
+						</column>
+						<column>
 							<action name="%(sales_dashboard.action_month_orders_graph)d" string="Orders of The Month"/>
 						</column>
 					</board>
