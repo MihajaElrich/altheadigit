@@ -12,7 +12,7 @@
 	""",
 	"depends" : ['sale_management'],
 	"data" : [
-		"views/sale.xml",
+		"views/dashboard.xml",
 	],
 	"application" : True,
 	"installable" : True,

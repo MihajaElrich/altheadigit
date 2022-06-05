@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="insert_visit_sale_form_view" model="ir.ui.view">
+			<field name="name">Visit Tab in Sale Order Form View</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name ="arch" type="xml">
+				<xpath expr="//group[@name='partner_details']" position="inside">
+					<field name="visit"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

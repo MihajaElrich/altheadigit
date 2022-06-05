@@ -38,8 +38,8 @@ msgstr "Commandes du Mois"
 #: model:ir.actions.act_window,name:sales_dashboard.action_order_evolution_graph
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.view_orders_evolution_graph
-msgid "Orders Evolution"
-msgstr "Évolution des commandes"
+msgid "Turnover Evolution"
+msgstr "Évolution du chiffre d'affaire"
 
 #. module: sales_dashboard
 #: model:ir.actions.act_window,name:sales_dashboard.action_orders_state_graph

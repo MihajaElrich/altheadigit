@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<data>		
+	<data>	
+		<!-- Month filter -->
+		<record id="dashboard_month_filter_view_search" model="ir.ui.view">
+			<field name="name">dashboard.view.search</field>
+			<field name="model">sale.order</field>
+			<field name="arch" type="xml">
+				<search>
+					<filter string="This Month" name="month_filter" domain="[('date_order', 'ilike', context_today().strftime('%m-%Y'))]"/>
+				</search>
+			</field>
+		</record>
+
 		<!-- Orders State Graph View -->
 		<record id="view_orders_state_graph" model="ir.ui.view">
 			<field name="name">Orders State</field>
@@ -9,6 +20,18 @@
 				<graph string="Orders State" type="pie">
 					<field name="state"/>
 					<field name="amount_total" type="measure"/>
+				</graph>
+			</field>
+		</record>
+		
+		<!-- Customer Count Graph View -->
+		<record id="view_customer_count_graph" model="ir.ui.view">
+			<field name="name">Customer Count</field>
+			<field name="model">res.users</field>
+			<field name="arch" type="xml">
+				<graph string="Customer Count">
+					<field name="user_id"/>
+					<field name="customer_count"/>
 				</graph>
 			</field>
 		</record>
@@ -37,12 +60,12 @@
 			</field>
 		</record>
 		
-		<!-- Orders Evolution Graph View -->
+		<!-- Turnover Evolution Graph View -->
 		<record id="view_orders_evolution_graph" model="ir.ui.view">
-			<field name="name">Orders Evolution</field>
+			<field name="name">Turnover Evolution</field>
 			<field name="model">sale.order</field>
 			<field name="arch" type="xml">
-				<graph string="Orders Evolution" type="line">
+				<graph string="Turnover Evolution" type="line">
 					<field name="date_order"/>
 					<field name="amount_total" type="measure"/>
 				</graph>
@@ -55,6 +78,17 @@
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="view_orders_state_graph"/>
+			<field name="search_view_id" ref="dashboard_month_filter_view_search"/>
+			<field name="context">{'search_default_month_filter' : 1}</field>
+			<field name="domain">[]</field>
+		</record>
+
+		<!-- Action for Customer Count Graph View -->
+		<record id="action_customer_count_graph" model="ir.actions.act_window">
+			<field name="name">Customer Count</field>
+			<field name="res_model">res.users</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="sales_dashboard.view_customer_count_graph"/>
 			<field name="domain">[]</field>
 		</record>
 
@@ -73,12 +107,12 @@
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="view_month_order_graph"/>
-			<field name="domain">[('order_of_month', '=', True)]</field>
+			<field name="domain">[('date_order', 'ilike', context_today().strftime('%m-%Y'))]</field>
 		</record>
 
-		<!-- Action for Orders Evolution Graph View -->
+		<!-- Action for Turnover Evolution Graph View -->
 		<record id="action_order_evolution_graph" model="ir.actions.act_window">
-			<field name="name">Orders Evolution</field>
+			<field name="name">Turnover Evolution</field>
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="view_orders_evolution_graph"/>
@@ -92,6 +126,12 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Dashboard">
+					<!-- <board style="1-2">
+						<column></column>
+						<column>
+							<action name="%(sales_dashboard.action_customer_count_graph)d" string="Customer Count"/>
+						</column>
+					</board> -->
 					<board style="1-2">
 						<column>
 							<action name="%(sales_dashboard.action_orders_state_graph)d" string="Orders State"/>
@@ -102,7 +142,7 @@
 					</board>
 					<board style="1-2">
 						<column>
-							<action name="%(sales_dashboard.action_order_evolution_graph)d" string="Orders Evolution"/>
+							<action name="%(sales_dashboard.action_order_evolution_graph)d" string="Turnover Evolution"/>
 						</column>
 						<column>
 							<action name="%(sales_dashboard.action_month_orders_graph)d" string="Orders of The Month"/>
@@ -122,8 +162,8 @@
 		</record>
 	</data>
 
-	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_menu_root" sequence="1" action="open_dashboard_action"/>
-	<!-- <menuitem name="Orders State" id="orders_state_dashboard_menu" parent="sales_dashboard_menu" action="action_orders_state_graph"/>
-	<menuitem name="Orders of the Month" id="month_orders_dashboard_menu" parent="sales_dashboard_menu" action="action_month_orders_graph"/>
-	<menuitem name="Salesperson" id="customer_activity_menu" parent="sales_dashboard_menu" action="action_customer_activity_graph"/> -->
+	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_menu_root" sequence="2" action="open_dashboard_action"/>
+	<!-- <menuitem name="Orders State" id="orders_state_dashboard_menu" parent="sale.sale_menu_root" action="action_orders_state_graph"/> -->
+	<!-- <menuitem name="Orders of the Month" id="month_orders_dashboard_menu" parent="sales_dashboard_menu" action="action_month_orders_graph"/> -->
+	<!-- <menuitem name="Salesperson" id="customer_activity_menu" parent="sales_dashboard_menu" action="action_customer_activity_graph"/> -->
 </odoo>

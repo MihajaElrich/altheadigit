@@ -10,11 +10,12 @@
 		=====
 		This module adds new model called visit
 	""",
-	"depends" : [],
+	"depends" : ['sale_management'],
 	"data" : [
 		"security/ir.model.access.csv",
 		"views/visit.xml",
 		"views/website.xml",
+		"views/sale.xml",
 	],
 	"application" : True,
 	"installable" : True,

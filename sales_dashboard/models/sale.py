@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
-from datetime import date
 
 class SaleOrder(models.Model):
 	_inherit = 'sale.order'
@@ -11,4 +10,4 @@ class SaleOrder(models.Model):
 	@api.depends('date_order')
 	def _get_month(self):
 		for record in self:
-			record.order_of_month = record.date_order.month == date.today().month
+			record.order_of_month = record.date_order.month == fields.date.today().month
