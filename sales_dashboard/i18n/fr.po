@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220204\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-19 07:01+0000\n"
-"PO-Revision-Date: 2022-05-19 07:01+0000\n"
+"POT-Creation-Date: 2022-06-05 18:27+0000\n"
+"PO-Revision-Date: 2022-06-05 18:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,14 @@ msgid "Customer Activity"
 msgstr "Activité des clients"
 
 #. module: sales_dashboard
+#: model:ir.actions.act_window,name:sales_dashboard.action_customer_count_graph
+#: model:ir.model.fields,field_description:sales_dashboard.field_res_users__customer_count
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.view_customer_count_graph
+msgid "Customer Count"
+msgstr "Nombre de clients"
+
+#. module: sales_dashboard
 #: model:ir.actions.act_window,name:sales_dashboard.open_dashboard_action
 #: model:ir.ui.menu,name:sales_dashboard.sales_dashboard_menu
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
@@ -35,14 +43,8 @@ msgid "Order of Month"
 msgstr "Commandes du Mois"
 
 #. module: sales_dashboard
-#: model:ir.actions.act_window,name:sales_dashboard.action_order_evolution_graph
-#: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
-#: model_terms:ir.ui.view,arch_db:sales_dashboard.view_orders_evolution_graph
-msgid "Turnover Evolution"
-msgstr "Évolution du chiffre d'affaire"
-
-#. module: sales_dashboard
 #: model:ir.actions.act_window,name:sales_dashboard.action_orders_state_graph
+#: model:ir.ui.menu,name:sales_dashboard.orders_state_dashboard_menu
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.view_orders_state_graph
 msgid "Orders State"
@@ -56,7 +58,7 @@ msgstr "Commandes du Mois"
 #. module: sales_dashboard
 #: model:ir.actions.act_window,name:sales_dashboard.action_month_orders_graph
 msgid "Orders of the Month"
-msgstr "Commandes du Mois"
+msgstr "Commandes du Mois (context_today().strftime('%B'))"
 
 #. module: sales_dashboard
 #: model:ir.model,name:sales_dashboard.model_sale_order
@@ -67,3 +69,20 @@ msgstr "Bon de commande"
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.view_month_order_graph
 msgid "Salesperson Dashboard"
 msgstr "Tableau de bord des Vendeurs"
+
+#. module: sales_dashboard
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.dashboard_month_filter_view_search
+msgid "This Month"
+msgstr "Ce mois"
+
+#. module: sales_dashboard
+#: model:ir.actions.act_window,name:sales_dashboard.action_order_evolution_graph
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.view_orders_evolution_graph
+msgid "Turnover Evolution"
+msgstr "Évolution des commandes"
+
+#. module: sales_dashboard
+#: model:ir.model,name:sales_dashboard.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
