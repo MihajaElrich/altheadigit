@@ -16,8 +16,8 @@ class Visit(models.Model):
 
 	customer_stocks = fields.One2many('customer.stock', 'visit', string="Customer Stocks", auto_join=True, copy=True)
 
-	competing_products = fields.Char(string="Competing Products")
-	marketing_watch = fields.Char(string="Marketing Watch")
+	competing_products = fields.Text(string="Competing Products")
+	marketing_watch = fields.Text(string="Marketing Watch")
 
 	@api.model
 	def create(self, vals):

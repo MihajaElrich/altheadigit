@@ -69,13 +69,13 @@
 										<div class="col-lg-12 row">
 											<div class="col-lg-12">
 												<label class="col-form-label label-ooptional" for="competing_products">Competing Products</label>
-												<input class="form-control rounded" type="text" name="competing_products" t-att-value="order.visit.competing_products"/>
+												<textarea class="form-control rounded" name="competing_products" style="resize: none;"><t t-esc="order.visit.competing_products"/></textarea>
 											</div>
 										</div>
 										<div class="col-lg-12 row">
 											<div class="col-lg-12">
 												<label class="col-form-label label-ooptional" for="marketing_watch">Marketing Watch</label>
-												<input class="form-control rounded" type="text" name="marketing_watch" t-att-value="order.visit.marketing_watch"/>
+												<textarea class="form-control rounded" name="marketing_watch" style="resize: none;"><t t-esc="order.visit.marketing_watch"/></textarea>
 											</div>
 										</div>
 									</div>								
