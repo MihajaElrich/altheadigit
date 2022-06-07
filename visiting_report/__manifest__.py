@@ -2,7 +2,7 @@
 	"name" : "Visiting Report",
 	"version" : "1.0",
 	"summary" : "Visiting Report",
-	"sequence" : 4,
+	"sequence" : 200,
 	"license" : "LGPL-3",
 	"author" : "Muriel Rémi Cyr",
 	"description" : """
