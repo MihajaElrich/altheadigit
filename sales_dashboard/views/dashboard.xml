@@ -31,8 +31,7 @@
 			<field name="arch" type="xml">
 				<graph string="Customer Count">
 					<field name="user_id"/>
-					<!-- <field name="customer_count"/> -->
-					<field name="clients" type="measure"/>
+					<field name="customer_count"/>
 				</graph>
 			</field>
 		</record>
@@ -166,7 +165,7 @@
 	</data>
 
 	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_menu_root" sequence="2" action="open_dashboard_action"/>
-	<menuitem name="Clients Activity" id="orders_state_dashboard_menu" parent="sale.sale_menu_root" action="action_customer_count_graph"/>
+	<!-- <menuitem name="Orders State" id="orders_state_dashboard_menu" parent="sale.sale_menu_root" action="action_orders_state_graph"/> -->
 	<!-- <menuitem name="Orders of the Month" id="month_orders_dashboard_menu" parent="sales_dashboard_menu" action="action_month_orders_graph"/> -->
 	<!-- <menuitem name="Salesperson" id="customer_activity_menu" parent="sales_dashboard_menu" action="action_customer_activity_graph"/> -->
 </odoo>
