@@ -47,23 +47,23 @@
 										<div class="col-lg-12 row">
 											<div class="col-lg-12">
 												<label class="col-form-label label-ooptional" for="obj">Visit Object</label>
-												<input class="form-control rounded" type="text" name="obj" t-att-value="order.visit.obj"/>
+												<input class="form-control rounded" type="text" name="obj" t-att-value="order.visit.obj" required="required"/>
 											</div>
 										</div>
 										<div class="col-lg-12 row">
 											<div class="col-lg-6">
 												<label class="col-form-label label-ooptional" for="start_datetime">Start Datetime</label>
-												<input class="form-control rounded" type="datetime-local" name="start_datetime" t-att-value="order.visit.start_datetime"/>
+												<input class="form-control rounded" type="datetime-local" name="start_datetime" t-att-value="order.visit.start_datetime" required="required"/>
 											</div>
 											<div class="col-lg-6">
 												<label class="col-form-label label-ooptional" for="end_datetime">End Datetime</label>
-												<input class="form-control rounded" type="datetime-local" name="end_datetime" t-att-value="order.visit.end_datetime"/>
+												<input class="form-control rounded" type="datetime-local" name="end_datetime" t-att-value="order.visit.end_datetime" required="required"/>
 											</div>
 										</div>
 										<div class="col-lg-12 row">
 											<div class="col-lg-12">
 												<label class="col-form-label label-ooptional" for="result">Result</label>
-												<textarea class="form-control rounded" name="result" style="resize: none;"><t t-esc="order.visit.result"/></textarea>
+												<textarea class="form-control rounded" name="result" style="resize: none;" require="required"><t t-esc="order.visit.result"/></textarea>
 											</div>
 										</div>
 										<div class="col-lg-12 row">

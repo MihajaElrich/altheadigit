@@ -73,8 +73,9 @@ class WebsiteSale(WebsiteSale):
 
 				# return request.redirect('/shop/payment/validate')
 			if order:
-				order.with_context(send_email=True).action_confirm()
+				# order.with_context(send_email=True).action_confirm()
 				# return request.redirect(order.get_portal_url())
+				order.with_context(send_email=True).sudo().write({'state' : 'sent'})
 				request.website.sale_reset()
 				return request.redirect('/shop/end_order')
 			# else:
