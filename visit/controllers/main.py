@@ -75,7 +75,7 @@ class WebsiteSale(WebsiteSale):
 			if order:
 				# order.with_context(send_email=True).action_confirm()
 				# return request.redirect(order.get_portal_url())
-				order.with_context(send_email=True).sudo().write({'state' : 'sent'})
+				order.with_context(send_email=True).sudo().write({'state' : 'sent', 'user_id' : request.uid or request.session.uid})
 				request.website.sale_reset()
 				return request.redirect('/shop/end_order')
 			# else:
