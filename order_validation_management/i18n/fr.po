@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* order_validation_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220204\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-08 19:19+0000\n"
+"PO-Revision-Date: 2022-06-08 19:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: order_validation_management
+#: model:ir.model.fields,field_description:order_validation_management.field_res_users__can_validate_order
+msgid "Can Validate Order"
+msgstr "Peut valider une commande"
+
+#. module: order_validation_management
+#: model:ir.model,name:order_validation_management.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: order_validation_management
+#: model:ir.model,name:order_validation_management.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
