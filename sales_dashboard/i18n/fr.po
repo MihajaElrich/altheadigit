@@ -80,7 +80,7 @@ msgstr "Ce mois"
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.view_orders_evolution_graph
 msgid "Turnover Evolution"
-msgstr "Évolution des commandes"
+msgstr "Évolution du chiffre d'affaire"
 
 #. module: sales_dashboard
 #: model:ir.model,name:sales_dashboard.model_res_users

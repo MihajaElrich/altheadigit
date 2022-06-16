@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  
+  <record id="visite_planning_customization" model="ir.ui.view">
+        <field name="name">calendar.visite_planning</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+        <field name="arch" type="xml">
+            <!-- replace name to commercial selection -->
+            <xpath expr="/form/sheet/div[3]" position="replace">
+                <div invisible="1" class="d-flex align-items-baseline">
+                    <field name="partner_ids" widget="many2manyattendee" placeholder="Select attendees..." context="{'force_email':True}" class="oe_inline o_calendar_attendees"/>
+                    <div  name="send_buttons" class="sm-2">
+                        <button name="action_open_composer" help="Send Email to attendees" type="object" string=" EMAIL" icon="fa-envelope"/>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="/form/sheet/div[2]/div/label" position="replace">
+                <label for="name" string="Client"/>
+            </xpath>
+        
+            <xpath expr="/form/sheet/div[2]/div" position="after">
+                <h1>
+                    <field name="customer_id"  placeholder="Selectionner un client" />
+                </h1>
+           </xpath>
+            <xpath expr="//field[@name='name']" position="replace">
+                 <field invisible="1"  name="name" placeholder="e.g. Business Lunch"/>
+            </xpath>
+
+            <xpath expr="//field[@name='videocall_location']" position="replace">
+                 <field invisible="1"  name="videocall_location" />
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="replace">
+                <field name="user_id" string="Commercial" widget="many2one_avatar_user"/>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_ids']" position="replace">
+                <field name="categ_ids" invisible="1"  widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+            </xpath>
+            
+            <xpath expr="//page[@name='page_invitations']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+            
+            <!-- <xpath expr="//page[@name='page_options']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+             -->
+            
+            
+        </field>
+
+
+    </record> 
+</odoo>

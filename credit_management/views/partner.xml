@@ -7,9 +7,9 @@
 			<field name="inherit_id" ref="base.view_partner_form"/>
 			<field name="arch" type="xml">
 				<xpath expr="//field[@name='category_id']" position="after">
-					<field name="odoo_credit"/>
-					<field name="sage_credit"/>
-					<field name="general_credit"/>
+					<field string="Limite de crédit" name="odoo_credit"/>
+					<field string="En cours client" name="sage_credit"/>
+					<!-- <field name="general_credit"/> -->
 				</xpath>
 			</field>
 		</record>

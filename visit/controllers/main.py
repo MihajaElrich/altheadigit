@@ -46,6 +46,24 @@ class WebsiteSale(WebsiteSale):
 	def save_visit(self, **post):
 		order = request.website.sale_get_order()
 
+		# Update sale customer
+		order.sudo().write(
+			{'partner_id' : request.env.user.customer_in_quotation_id, 
+			 'partner_invoice_id' : request.env.user.customer_in_quotation_id,
+			 'partner_shipping_id' : request.env.user.customer_in_quotation_id
+			}
+		)
+		# set null website customer
+		request.env.user.sudo().write(
+			{'customer_in_quotation_id' : None, 
+			 'customer_in_quotation_name' : None,
+			}
+		)
+
+
+
+		# request.env.user.customer_in_quotation_id
+
 		if post:
 			if post.get('visit_id'):
 				visit = request.env['visit'].browse(int(post.get('visit_id')))
@@ -82,6 +100,8 @@ class WebsiteSale(WebsiteSale):
 			# 	return request.redirect('/shop/first_condition_not_true')
 		else:
 			return request.redirect('shop/address')
+		
+
 
 	@http.route(['/shop/end_order'], type='http', auth="public", website=True, sitemap=False)
 	def end_order(self, **post):
