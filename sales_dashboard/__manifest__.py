@@ -10,7 +10,7 @@
 		===============
 		This module adds graph view for the sale dashboard
 	""",
-	"depends" : ['sale_management'],
+	"depends" : ['sale_management', 'board'],
 	"data" : [
 		"views/dashboard.xml",
 	],
