@@ -61,12 +61,7 @@
 						</page>
 						<page name="competition" string="Competition">
 							<group>
-								<group>
-									<field name="competing_products"/>
-								</group>
-								<group>
-									<field name="marketing_watch"/>
-								</group>
+								<field name="other_comments"/>
 							</group>
 						</page>
 					</notebook>

@@ -72,8 +72,7 @@ class WebsiteSale(WebsiteSale):
 					'start_datetime' : post.get('start_datetime').replace('T', ' '),
 					'end_datetime' : post.get('end_datetime').replace('T', ' '),
 					'result' : post.get('result'),					
-					'competing_products' : post.get('competing_products'),					
-					'marketing_watch' : post.get('marketing_watch'),					
+					'other_comments' : post.get('other_comments'),					
 				})
 
 				# return request.redirect('/shop/payment/validate')
@@ -83,8 +82,7 @@ class WebsiteSale(WebsiteSale):
 					'start_datetime' : post.get('start_datetime').replace('T', ' '),
 					'end_datetime' : post.get('end_datetime').replace('T', ' '),
 					'result' : post.get('result'),
-					'competing_products' : post.get('competing_products'),
-					'marketing_watch' : post.get('marketing_watch'),					
+					'other_comments' : post.get('other_comments'),
 				})
 
 				order.sudo().write({'visit' : visit.id})
