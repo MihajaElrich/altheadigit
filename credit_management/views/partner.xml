@@ -6,10 +6,12 @@
 			<field name="model">res.partner</field>
 			<field name="inherit_id" ref="base.view_partner_form"/>
 			<field name="arch" type="xml">
-				<xpath expr="//field[@name='category_id']" position="after">
-					<field string="Limite de crédit" name="odoo_credit"/>
-					<field string="En cours client" name="sage_credit"/>
-					<!-- <field name="general_credit"/> -->
+				<xpath expr="//group[@name='container_row_2']" position="inside">
+					<group name="credit_infos" string="Credit Infos">
+						<field string="Limite de crédit" name="odoo_credit"/>
+						<field string="En cours client" name="sage_credit"/>
+						<!-- <field name="general_credit"/> -->
+					</group>
 				</xpath>
 			</field>
 		</record>

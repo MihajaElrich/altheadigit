@@ -47,14 +47,16 @@
 										<div class="col-lg-12 row">
 											<div class="col-lg-12">
 												<label class="col-form-label label-ooptional" for="obj">Visit Object</label>
+												<!-- <input class="form-control rounded" type="text" name="obj" t-att-value="order.visit.obj" required="required"/> -->
+												<!-- <input class="form-control rounded" type="text" name="obj" t-att-value="order.partner_id.last_website_visit" required="required"/> -->
 												<select name="obj" class="form-control rounded">
-													<option value="prospecting" t-att-selected="1 if order.visit.obj == 'prospecting' else 0">Prospecting</option>
-													<option value="courtesy" t-att-selected="1 if order.visit.obj == 'courtesy' else 0">Courtesy Visit</option>
-													<option value="order_taking" t-att-selected="1 if order.visit.obj == 'order_taking' else 0">Order Taking</option>
-													<option value="merchandising" t-att-selected="1 if order.visit.obj == 'merchandising' else 0">Merchandising</option>
-													<option value="recovery" t-att-selected="1 if order.visit.obj == 'recovery' else 0">Recovery</option>
-													<option value="litigation" t-att-selected="1 if order.visit.obj == 'litigation' else 0">Litigation Management</option>
-													<option value="promotion_proposal" t-att-selected="1 if order.visit.obj == 'promotion_proposal' else 0">Promotion Proposal</option>
+													<option value="prospecting">Prospecting</option>
+													<option value="courtesy">Courtesy Visit</option>
+													<option value="order_taking">Order Taking</option>
+													<option value="merchandising">Merchandising</option>
+													<option value="recovery">Recovery</option>
+													<option value="litigation">Litigation Management</option>
+													<option value="promotion_proposal">Promotion Proposal</option>
 												</select>
 											</div>
 										</div>
@@ -62,6 +64,7 @@
 											<div class="col-lg-6">
 												<label class="col-form-label label-ooptional" for="start_datetime">Start Datetime</label>
 												<input class="form-control rounded" type="datetime-local" name="start_datetime" t-att-value="order.visit.start_datetime" required="required"/>
+												<!-- <input class="form-control rounded" type="datetime-local" name="start_datetime" t-att-value="order.partner_id.last_website_visit.strftime('%Y-%m-%dT%H:%M:%S')" required="required"/> -->
 											</div>
 											<div class="col-lg-6">
 												<label class="col-form-label label-ooptional" for="end_datetime">End Datetime</label>

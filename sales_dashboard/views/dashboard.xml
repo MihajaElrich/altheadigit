@@ -117,7 +117,7 @@
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="view_orders_evolution_graph"/>
-			<field name="domain">[]</field>
+			<field name="domain">[('state', '=', 'sale')]</field>
 		</record>
 
 		<!-- Dashboard view -->
