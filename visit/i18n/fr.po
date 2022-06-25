@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0-20220204\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-05 17:30+0000\n"
-"PO-Revision-Date: 2022-06-05 17:30+0000\n"
+"POT-Creation-Date: 2022-06-25 10:06+0000\n"
+"PO-Revision-Date: 2022-06-25 10:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,15 +52,15 @@ msgstr ""
 "                    <i class=\"fa fa-chevron-right\"/>"
 
 #. module: visit
-#: model:ir.model.fields,field_description:visit.field_visit__competing_products
-#: model_terms:ir.ui.view,arch_db:visit.visit_report
-msgid "Competing Products"
-msgstr "Produits concurrents"
-
-#. module: visit
 #: model_terms:ir.ui.view,arch_db:visit.visit_form_view_id
 msgid "Competition"
 msgstr "Concurrence"
+
+#. module: visit
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__courtesy
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Courtesy Visit"
+msgstr "Visite de courtoisie"
 
 #. module: visit
 #: model:ir.model.fields,field_description:visit.field_customer_stock__create_uid
@@ -128,10 +128,16 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: visit
-#: model:ir.model.fields,field_description:visit.field_visit__marketing_watch
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__litigation
 #: model_terms:ir.ui.view,arch_db:visit.visit_report
-msgid "Marketing Watch"
-msgstr "Veille Marketing"
+msgid "Litigation Management"
+msgstr "Gestion Litige"
+
+#. module: visit
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__merchandising
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Merchandising"
+msgstr ""
 
 #. module: visit
 #: model:ir.model.fields,field_description:visit.field_visit__name
@@ -149,9 +155,39 @@ msgid "Order Finished"
 msgstr "Commande terminée"
 
 #. module: visit
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__order_taking
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Order Taking"
+msgstr "Prise de Commande"
+
+#. module: visit
+#: model:ir.model.fields,field_description:visit.field_visit__other_comments
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Other Comments"
+msgstr "Autres Commentaires"
+
+#. module: visit
 #: model:ir.model.fields,field_description:visit.field_customer_stock__product
 msgid "Product"
 msgstr "Produit"
+
+#. module: visit
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__promotion_proposal
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Promotion Proposal"
+msgstr "Proposition Promotion"
+
+#. module: visit
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__prospecting
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Prospecting"
+msgstr "Prospection"
+
+#. module: visit
+#: model:ir.model.fields.selection,name:visit.selection__visit__obj__recovery
+#: model_terms:ir.ui.view,arch_db:visit.visit_report
+msgid "Recovery"
+msgstr "Recouvrement"
 
 #. module: visit
 #: model:ir.model.fields,field_description:visit.field_visit__result
@@ -183,7 +219,7 @@ msgstr "Début"
 #. module: visit
 #: model:ir.model.fields,field_description:visit.field_customer_stock__stock
 msgid "Stock"
-msgstr "Stock"
+msgstr ""
 
 #. module: visit
 #: model:ir.model,name:visit.model_visit

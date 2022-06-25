@@ -1,5 +1,5 @@
 # -*- coding : utf-8 -*-
-from odoo import api, models, fields
+from odoo import api, models, fields, _
 from odoo.exceptions import UserError
 from datetime import datetime as dt
 
@@ -9,7 +9,15 @@ class Visit(models.Model):
 
 	name = fields.Char(string="Number")
 	customer = fields.Many2one('res.partner', string="Customer")
-	obj = fields.Char(string="Object")
+	obj = fields.Selection([
+		('prospecting', _('Prospecting')),
+		('courtesy', _('Courtesy Visit')),
+		('order_taking', _('Order Taking')),
+		('merchandising', _('Merchandising')),
+		('recovery', _('Recovery')),
+		('litigation', _('Litigation Management')),
+		('promotion_proposal', _('Promotion Proposal'))
+	],string="Object")
 	start_datetime = fields.Datetime(string="Start Datetime")
 	end_datetime = fields.Datetime(string="End Datetime")
 	result = fields.Text(string="Result")

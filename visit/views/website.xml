@@ -48,7 +48,16 @@
 											<div class="col-lg-12">
 												<label class="col-form-label label-ooptional" for="obj">Visit Object</label>
 												<!-- <input class="form-control rounded" type="text" name="obj" t-att-value="order.visit.obj" required="required"/> -->
-												<input class="form-control rounded" type="text" name="obj" t-att-value="order.partner_id.last_website_visit" required="required"/>
+												<!-- <input class="form-control rounded" type="text" name="obj" t-att-value="order.partner_id.last_website_visit" required="required"/> -->
+												<select name="obj" class="form-control rounded">
+													<option value="prospecting">Prospecting</option>
+													<option value="courtesy">Courtesy Visit</option>
+													<option value="order_taking">Order Taking</option>
+													<option value="merchandising">Merchandising</option>
+													<option value="recovery">Recovery</option>
+													<option value="litigation">Litigation Management</option>
+													<option value="promotion_proposal">Promotion Proposal</option>
+												</select>
 											</div>
 										</div>
 										<div class="col-lg-12 row">
