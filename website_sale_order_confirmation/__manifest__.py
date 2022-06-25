@@ -6,6 +6,8 @@
         website sale order confirmation
             """,
 
+    'license' : 'LGPL-3',
+
     'description': """
         website sale order confirmation
             """,

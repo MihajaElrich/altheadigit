@@ -8,7 +8,7 @@
     'description': """
        
     """,
-
+    'license' : 'LGPL-3',
     'author': "VNTechnology",
     'website': "https://vntechnology.eu",
 
