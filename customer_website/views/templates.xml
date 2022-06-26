@@ -1,24 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-<!--
-        <template id="listing">
-          <ul>
-            <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
-                <t t-esc="object.display_name"/>
-              </a>
-            </li>
-          </ul>
-        </template>
-        <template id="object">
-          <h1><t t-esc="object.display_name"/></h1>
-          <dl>
-            <t t-foreach="object._fields" t-as="field">
-              <dt><t t-esc="field"/></dt>
-              <dd><t t-esc="object[field]"/></dd>
-            </t>
-          </dl>
-        </template>
--->
-    </data>
+	<data>
+		<record id="website_insert_partner_selection" model="ir.ui.view">
+			<field name="name">website.partner.selection</field>
+			<!-- <field name="model">website</field> -->
+			<field name="inherit_id" ref="website.navbar_nav"/>
+			<field name ="arch" type="xml">
+				<xpath expr="//ul" position="inside">
+					<label class="col-form-label label-ooptional ml-2" for="partner_id">Partner</label>
+					<select class="form-control col-2 rounded ml-2" name="partner_id">
+						<option value="1">Partner 1</option>
+						<option value="2">Partner 2</option>
+						<option value="3">Partner 3</option>
+						<option value="4">Partner 4</option>
+						<option value="5">Partner 5</option>
+						<option value="6">Partner 6</option>
+					</select>
+				</xpath>
+			</field>
+		</record>
+	</data>
 </odoo>
