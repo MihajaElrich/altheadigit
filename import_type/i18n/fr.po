@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* import_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20220620\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-27 18:26+0000\n"
+"PO-Revision-Date: 2022-06-27 18:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: import_type
+#: model:ir.model.fields,field_description:import_type.field_sale_order__bl_import
+msgid "BL Import"
+msgstr "Import BL"
+
+#. module: import_type
+#: model:ir.model.fields,field_description:import_type.field_sale_order__inv_import
+msgid "Invoice Import"
+msgstr "Import Facture"
+
+#. module: import_type
+#: model_terms:ir.ui.view,arch_db:import_type.sale_sage_synch_tab
+msgid "Sage Synch"
+msgstr "Synchronisation Sage"
+
+#. module: import_type
+#: model:ir.model,name:import_type.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
