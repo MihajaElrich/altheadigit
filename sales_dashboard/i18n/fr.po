@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0-20220204\n"
+"Project-Id-Version: Odoo Server 15.0-20220620\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-05 18:27+0000\n"
-"PO-Revision-Date: 2022-06-05 18:27+0000\n"
+"POT-Creation-Date: 2022-06-29 06:24+0000\n"
+"PO-Revision-Date: 2022-06-29 06:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,6 @@ msgstr "Activité des clients"
 #. module: sales_dashboard
 #: model:ir.actions.act_window,name:sales_dashboard.action_customer_count_graph
 #: model:ir.model.fields,field_description:sales_dashboard.field_res_users__customer_count
-#: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.view_customer_count_graph
 msgid "Customer Count"
 msgstr "Nombre de clients"
@@ -44,7 +43,6 @@ msgstr "Commandes du Mois"
 
 #. module: sales_dashboard
 #: model:ir.actions.act_window,name:sales_dashboard.action_orders_state_graph
-#: model:ir.ui.menu,name:sales_dashboard.orders_state_dashboard_menu
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
 #: model_terms:ir.ui.view,arch_db:sales_dashboard.view_orders_state_graph
 msgid "Orders State"
@@ -86,3 +84,10 @@ msgstr "Évolution du chiffre d'affaire"
 #: model:ir.model,name:sales_dashboard.model_res_users
 msgid "Users"
 msgstr "Utilisateurs"
+
+#. module: sales_dashboard
+#: model:ir.actions.act_window,name:sales_dashboard.action_today_visit_planning
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.sales_dashboard_view
+#: model_terms:ir.ui.view,arch_db:sales_dashboard.view_today_visit_plannig_calendar
+msgid "Visit of the day"
+msgstr "Visite du jour"

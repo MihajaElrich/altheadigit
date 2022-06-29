@@ -53,8 +53,10 @@
 			<field name="name">Orders of the Month</field>
 			<field name="model">sale.order</field>
 			<field name="arch" type="xml">
-				<graph string="Salesperson Dashboard">
-					<field name="user_id"/>
+				<graph string="Salesperson Dashboard" type="bar" stacked="0">
+					<field name="user_id" type="col"/>
+					<field name="user_id" type="row"/>
+					<field name="amount_untaxed" type="measure"/>
 					<field name="amount_total" type="measure"/>
 				</graph>
 			</field>
@@ -120,6 +122,29 @@
 			<field name="domain">[('state', '=', 'sale')]</field>
 		</record>
 
+		<!-- Today Visit Planning View -->
+		<record id="view_today_visit_plannig_calendar" model="ir.ui.view">
+			<field name="name">Visit of the day</field>
+			<field name="model">calendar.event</field>
+			<field name="arch" type="xml">
+				<tree string="Visit of the day">
+					<field name="name"/>
+					<field name="start"/>
+					<field name="stop"/>
+					<field name="partner_ids" widget="many2many_tags"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action for Today Visit Planning -->
+		<record id="action_today_visit_planning" model="ir.actions.act_window">
+			<field name="name">Visit of the day</field>
+			<field name="res_model">calendar.event</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_today_visit_plannig_calendar"/>
+			<field name="domain">[('start', '&gt;=', context_today().strftime('%Y-%m-%d 00:00:00')), ('start', '&lt;=', context_today().strftime('%Y-%m-%d 23:59:59'))]</field>
+		</record>
+
 		<!-- Dashboard view -->
 		<record model="ir.ui.view" id="sales_dashboard_view">
 			<field name="name">Dashboard</field>
@@ -133,6 +158,11 @@
 							<action name="%(sales_dashboard.action_customer_count_graph)d" string="Customer Count"/>
 						</column>
 					</board> -->
+					<board style="1">
+						<column>
+							<action name="%(sales_dashboard.action_today_visit_planning)d" string="Visit of the day"/>
+						</column>
+					</board>
 					<board style="1-2">
 						<column>
 							<action name="%(sales_dashboard.action_orders_state_graph)d" string="Orders State"/>
