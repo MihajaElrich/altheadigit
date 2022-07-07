@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
+		<record id="select2_loading" model="ir.ui.view">
+			<field name="name">select2.loading</field>
+			<field name="inherit_id" ref="web.layout"/>
+			<field name="arch" type="xml">
+				<xpath expr="//html/head/script" position="after">
+					<script type="text/javascript" src="customer_website/static/src/js/jquery.min.js"/>
+					<link rel="stylesheet" type="text/css" href="customer_website/static/src/css/select2.min.css"/>
+					<script type="text/javascript" src="customer_website/static/src/js/althea.js"/>
+					<script type="text/javascript" src="customer_website/static/src/js/select2.min.js"/>
+				</xpath>
+			</field>
+		</record>
+
 		<record id="website_insert_partner_selection" model="ir.ui.view">
 			<field name="name">website.partner.selection</field>
 			<!-- <field name="model">website</field> -->
 			<field name="inherit_id" ref="website.navbar_nav"/>
 			<field name ="arch" type="xml">
 				<xpath expr="//ul" position="inside">
-					<label class="col-form-label label-ooptional ml-2" for="partner_id">Partner</label>
-					<select class="form-control col-2 rounded ml-2" name="partner_id">
-						<option value="1">Partner 1</option>
-						<option value="2">Partner 2</option>
-						<option value="3">Partner 3</option>
-						<option value="4">Partner 4</option>
-						<option value="5">Partner 5</option>
-						<option value="6">Partner 6</option>
-					</select>
+					<div id="partner_selection" class="mt-2 col-4">
+						<t t-set="partners" t-value="website.quotation_customer"/>
+						<select id="partner_select" class="form-control" name="partner_id">
+							<option value="0" disabled="1" t-att-selected="website.selected_customer_id == 0">Select a partner</option>
+							<t t-foreach="partners" t-as="partner">
+								<option t-att-selected="website.selected_customer_id == partner.id"><t t-esc="partner.name"/></option>
+							</t>
+						</select>
+					</div>
 				</xpath>
 			</field>
 		</record>

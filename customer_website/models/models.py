@@ -7,6 +7,7 @@ class customer_website(models.Model):
 	_inherit = 'website'
 
 	quotation_customer = fields.Many2many('res.partner', string="Clients", compute = '_compute_customers', store = False)
+	selected_customer_id = fields.Integer(string="Selected Customer ID", default=0)
 
 	def _compute_customers(self):
 		for website in self:
@@ -25,6 +26,7 @@ class ResPartner(models.Model):
 	last_website_visit = fields.Datetime(string="Latest visit on website")
 
 	def go_to_website(self):
+		self.env['website'].browse(1).update({'selected_customer_id' : self.id})
 		self.update({'last_website_visit' : fields.datetime.now()})
 		return {
 			'url' : "/website/customer_selection?id=%s" % self.id,

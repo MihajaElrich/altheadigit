@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0-20220204\n"
+"Project-Id-Version: Odoo Server 15.0-20220620\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-17 12:35+0000\n"
-"PO-Revision-Date: 2022-06-17 12:35+0000\n"
+"POT-Creation-Date: 2022-07-06 11:04+0000\n"
+"PO-Revision-Date: 2022-07-06 11:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,13 +38,18 @@ msgstr ""
 #. module: customer_website
 #: model:ir.model.fields,field_description:customer_website.field_res_partner__last_website_visit
 #: model:ir.model.fields,field_description:customer_website.field_res_users__last_website_visit
-msgid "Latest visit on website on"
+msgid "Latest visit on website"
 msgstr "Dernière visite sur le site web"
 
 #. module: customer_website
 #: model:ir.model.fields,field_description:customer_website.field_res_users__customer_in_quotation_name
 msgid "Nom du Client en cours de saisie de devis"
 msgstr ""
+
+#. module: customer_website
+#: model_terms:ir.ui.view,arch_db:customer_website.website_insert_partner_selection
+msgid "Select a partner"
+msgstr "Selectionner un client"
 
 #. module: customer_website
 #: model:ir.model,name:customer_website.model_res_users
