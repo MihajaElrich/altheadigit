@@ -14,6 +14,9 @@ class customer_website(models.Model):
 			cust = self.env['res.partner'].search([('customer_rank', '>', 0)])
 			website.quotation_customer = cust
 	
+	def test_func(self):
+		return 'test function'
+
 class customer_on_quotation(models.Model) :
 	_inherit = 'res.users'
 

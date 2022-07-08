@@ -6,10 +6,10 @@
 			<field name="inherit_id" ref="web.layout"/>
 			<field name="arch" type="xml">
 				<xpath expr="//html/head/script" position="after">
-					<script type="text/javascript" src="customer_website/static/src/js/jquery.min.js"/>
+					<!-- <script type="text/javascript" src="customer_website/static/src/js/jquery3.6.0.min.js"/>
 					<link rel="stylesheet" type="text/css" href="customer_website/static/src/css/select2.min.css"/>
 					<script type="text/javascript" src="customer_website/static/src/js/althea.js"/>
-					<script type="text/javascript" src="customer_website/static/src/js/select2.min.js"/>
+					<script type="text/javascript" src="customer_website/static/src/js/select2.min.js"/> -->
 				</xpath>
 			</field>
 		</record>
@@ -25,7 +25,7 @@
 						<select id="partner_select" class="form-control" name="partner_id">
 							<option value="0" disabled="1" t-att-selected="website.selected_customer_id == 0">Select a partner</option>
 							<t t-foreach="partners" t-as="partner">
-								<option t-att-selected="website.selected_customer_id == partner.id"><t t-esc="partner.name"/></option>
+								<option t-att-selected="website.selected_customer_id == partner.id" t-att-value="partner.id"><t t-esc="partner.name"/></option>
 							</t>
 						</select>
 					</div>

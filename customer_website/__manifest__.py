@@ -21,4 +21,12 @@
         'views/templates.xml',
         'views/partner.xml'
     ],
+    # 'assets' : {
+    #     'web.assets_frontend' : [
+    #         'customer_website/static/src/js/jquery3.6.0.min.js',
+    #         'customer_website/static/src/css/select2.min.css',
+    #         'customer_website/static/src/js/althea.js',
+    #         'customer_website/static/src/js/select2.min.js',
+    #     ],
+    # },
 }
