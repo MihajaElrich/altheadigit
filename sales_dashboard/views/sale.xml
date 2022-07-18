@@ -36,6 +36,13 @@
 			<field name="view_id" ref="sale.view_sale_order_graph"/>
 			<field name="domain">[]</field>
 		</record>
+		<record id="action_target_dashboard" model="ir.actions.act_window">
+			<field name="name">Target Dashboard</field>
+			<field name="res_model">dashboard.target</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="sales_dashboard.view_target_dashboard_graph"/>
+			<field name="domain">[]</field>
+		</record>
 
 		<!-- Add menu for Salesperson dashboard -->
 		<record id="action_salesperson_dashboard" model="ir.actions.act_window">
@@ -47,6 +54,7 @@
 		</record>
 	</data>
 
+	<menuitem name="Target dashboard" id="sales_dashboard_target_menu" parent="sales_dashboard_menu" sequence="1" action="action_target_dashboard"/>
 	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_order_menu" sequence="2"/>
 	<menuitem name="Orders" id="orders_dashboard_menu" parent="sales_dashboard_menu" action="action_orders_dashboard"/>
 	<menuitem name="Salesperson" id="salesperson_dashboard_menu" parent="sales_dashboard_menu" action="action_salesperson_dashboard"/>

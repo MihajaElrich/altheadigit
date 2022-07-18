@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!-- set default order confirmation template -->
+        <record id="default_global_amount_target" model="dashboard.parameter">
+            <field name="key">global_amount_target</field>
+            <field name="value"> 0 </field>
+        </record>
+    </data>
+</odoo>

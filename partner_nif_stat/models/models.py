@@ -8,3 +8,5 @@ class PartnerNifStat(models.Model):
 
     nif = fields.Char(string='NIF')
     stat = fields.Char(string='STAT')
+    rcs = fields.Char(string='RCS')
+    facebook_link = fields.Char(string='Lien Facebook')

@@ -2,12 +2,20 @@
 <odoo>
 	<data>	
 		<!-- Month filter -->
-		<record id="dashboard_month_filter_view_search" model="ir.ui.view">
+		<record id="dashboard_target_filter_view_search" model="ir.ui.view">
 			<field name="name">dashboard.view.search</field>
-			<field name="model">sale.order</field>
+			<field name="model">dashboard.target</field>
 			<field name="arch" type="xml">
 				<search>
-					<filter string="This Month" name="month_filter" domain="[('date_order', '&gt;=', context_today().strftime('%Y-%m-01'))]"/>
+					<filter string="Administrateur" name="user_filter" domain="[('user_id', '=', 2)]"/>
+					<filter string="Commercial 1" name="user2_filter" domain="[('user_id', '=', 7)]"/>
+					<filter string="Commercial 2" name="user3_filter" domain="[('user_id', '=', 8)]"/>
+					<separator/>
+					<filter string="Mars" name="mars_filter" domain="[('month', '=', 3)]"/>
+					<filter string="Avril" name="april_filter" domain="[('month', '=', 4)]"/>
+					<filter string="Mai" name="may_filter" domain="[('month', '=', 5)]"/>
+					<filter string="Juin" name="june_filter" domain="[('month', '=', 6)]"/>
+					<filter string="Juillet" name="july_filter" domain="[('month', '=', 7)]"/>
 				</search>
 			</field>
 		</record>
@@ -17,9 +25,9 @@
 			<field name="name">Orders State</field>
 			<field name="model">sale.order</field>
 			<field name="arch" type="xml">
-				<graph string="Orders State" type="pie">
+				<graph string="Orders State" type="pie" >
 					<field name="state"/>
-					<field name="amount_total" type="measure"/>
+					<field name="amount_total" />
 				</graph>
 			</field>
 		</record>
@@ -41,10 +49,39 @@
 			<field name="name">Customer Activity</field>
 			<field name="model">sale.order</field>
 			<field name="arch" type="xml">
-				<graph string="Customer Activity">
+				<graph string="Customer Activity" type="bar" stacked="False" >
 					<field name="user_id"/>
-					<field name="partner_id"/>
+					<field name="amount_total" type="measure"/>
 				</graph>
+				
+			</field>
+		</record>
+		
+		<!-- Customer Target Graph View -->
+		<record id="view_vendor_target_graph" model="ir.ui.view">
+			<field name="name">Vendor Target</field>
+			<field name="model">dashboard.target</field>
+			<field name="arch" type="xml">
+				<graph string="Vendor Target" type="bar" stacked="False" >
+					<field name="user_id"/>
+					<field name="amount" type="measure"/>
+				</graph>
+				
+			</field>
+		</record>
+
+		<!-- Custome Filter for Target Graph  -->
+		<record id="custom_filter_target_graph" model="ir.ui.view">
+			<field name="name">Custom Filter Dashboard Target</field>
+			<field name="model">dashboard.target</field>
+			<field name="arch" type="xml">
+				<form string="Dashboard">
+				<!-- <sheet> -->
+					<!-- <group> -->
+						<field name="current_user_id" />
+					<!-- </group> -->
+				<!-- </sheet> -->
+				</form>
 			</field>
 		</record>
 		
@@ -53,10 +90,8 @@
 			<field name="name">Orders of the Month</field>
 			<field name="model">sale.order</field>
 			<field name="arch" type="xml">
-				<graph string="Salesperson Dashboard" type="bar" stacked="0">
-					<field name="user_id" type="col"/>
-					<field name="user_id" type="row"/>
-					<field name="amount_untaxed" type="measure"/>
+				<graph string="Salesperson Dashboard">
+					<field name="user_id"/>
 					<field name="amount_total" type="measure"/>
 				</graph>
 			</field>
@@ -100,8 +135,32 @@
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="sales_dashboard.view_customer_activity_graph"/>
+			<field name="context">{'group_by':['user_id', 'partner_id']}</field>
 			<field name="domain">[]</field>
 		</record>
+
+		<!-- Action for Customer Activity Graph View -->
+		<record id="action_vendor_target_graph" model="ir.actions.act_window">
+			<field name="name">Vendor Target</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">dashboard.target</field>
+			<field name="domain">[]</field>
+			<field name="context">{'group_by':['month', 'type']}</field>
+			<field name="view_mode">graph</field>
+			<field name="view_id" ref="sales_dashboard.view_vendor_target_graph"/>
+			
+		</record>
+
+		<!-- Custom filter Action for Customer Dashboard target -->
+		<record id="dashboard_target_filter_view" model="ir.actions.act_window">
+			<field name="name">Filter Target</field>
+			<field name="res_model">dashboard.target</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="sales_dashboard.custom_filter_target_graph"/>
+			<field name="context">{}</field>
+			<field name="domain">[]</field>
+		</record>
+		
 
 		<!-- Action for Orders of the Month Graph View -->
 		<record id="action_month_orders_graph" model="ir.actions.act_window">
@@ -119,9 +178,9 @@
 			<field name="res_model">sale.order</field>
 			<field name="view_mode">graph</field>
 			<field name="view_id" ref="view_orders_evolution_graph"/>
-			<field name="domain">[('state', '=', 'sale')]</field>
+			<field name="domain">[]</field>
 		</record>
-
+		
 		<!-- Today Visit Planning View -->
 		<record id="view_today_visit_plannig_calendar" model="ir.ui.view">
 			<field name="name">Visit of the day</field>
@@ -148,40 +207,41 @@
 		<!-- Dashboard view -->
 		<record model="ir.ui.view" id="sales_dashboard_view">
 			<field name="name">Dashboard</field>
-			<field name="model">board.board</field>
+			<field name="model">dashboard.target</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Dashboard">
-					<!-- <board style="1-2">
-						<column></column>
-						<column>
-							<action name="%(sales_dashboard.action_customer_count_graph)d" string="Customer Count"/>
-						</column>
-					</board> -->
 					<board style="1">
 						<column>
 							<action name="%(sales_dashboard.action_today_visit_planning)d" string="Visit of the day"/>
 						</column>
 					</board>
-					<board style="1-2">
-						<column>
+					<board>
+						<!-- <column>
 							<action name="%(sales_dashboard.action_orders_state_graph)d" string="Orders State"/>
-						</column>
+						</column> -->
 						<column>
-							<action name="%(sales_dashboard.action_customer_activity_graph)d" string="Customer Activity"/>
+							
+							<!-- <action name="%(sales_dashboard.dashboard_target_filter_view)d"  string="Filter"/> -->
+							<action name="%(sales_dashboard.action_vendor_target_graph)d" context="{'user_id': 2}" string="Tableau de bord Vendeur"/>
 						</column>
 					</board>
-					<board style="1-2">
+					<!-- <board >
 						<column>
 							<action name="%(sales_dashboard.action_order_evolution_graph)d" string="Turnover Evolution"/>
 						</column>
 						<column>
 							<action name="%(sales_dashboard.action_month_orders_graph)d" string="Orders of The Month"/>
 						</column>
-					</board>
+						<column>
+							<action name="%(sales_dashboard.action_orders_state_graph)d" string="Orders State"/>
+						</column>
+					</board> -->
 				</form>
 			</field>
 		</record>
+
+		
 
 		<!-- Action to open the dashboard -->
 		<record model="ir.actions.act_window" id="open_dashboard_action">
@@ -190,11 +250,28 @@
 			<field name="view_mode">form</field>
 			<field name="usage">menu</field>
 			<field name="view_id" ref="sales_dashboard_view"/>
-			<!-- <field name="search_view_id" ref="dashboard_month_filter_view_search"/> -->
+			<field name="search_view_id" ref="dashboard_target_filter_view_search"/>
 		</record>
-	</data>
 
-	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_menu_root" sequence="2" action="open_dashboard_action"/>
+		<!-- Action to open the target dashboard -->
+		<record model="ir.actions.act_window" id="action_target_dashboard">
+			<field name="name">Target Dashboard</field>
+			<field name="res_model">dashboard.target</field>
+			<field name="view_mode">graph</field>
+			<field name="usage">menu</field>
+			<!-- <field name="view_id" ref="sales_dashboard_view"/> -->
+			<field name="search_view_id" ref="dashboard_target_filter_view_search"/>
+			<field name="context">{'search_default_july_filter':1,'group_by':['user_id', 'type']}</field>
+			
+		</record>
+
+	
+	</data>
+	
+	<menuitem name="Dashboard" id="sales_dashboard_menu" parent="sale.sale_menu_root" sequence="1" />
+	<menuitem name="Vendor target dashboard" id="sales_dashboard_target_menu" parent="sales_dashboard_menu" sequence="1" action="action_target_dashboard"/>
+	<menuitem name="Analyse de vente" id="sales_analysis_dashboard" parent="sales_dashboard_menu" sequence="2" action="open_dashboard_action"/>
+	<!--action="open_dashboard_action"-->
 	<!-- <menuitem name="Orders State" id="orders_state_dashboard_menu" parent="sale.sale_menu_root" action="action_orders_state_graph"/> -->
 	<!-- <menuitem name="Orders of the Month" id="month_orders_dashboard_menu" parent="sales_dashboard_menu" action="action_month_orders_graph"/> -->
 	<!-- <menuitem name="Salesperson" id="customer_activity_menu" parent="sales_dashboard_menu" action="action_customer_activity_graph"/> -->

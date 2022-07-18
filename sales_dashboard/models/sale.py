@@ -11,3 +11,18 @@ class SaleOrder(models.Model):
 	def _get_month(self):
 		for record in self:
 			record.order_of_month = record.date_order.month == fields.date.today().month
+
+	@api.model
+	def create(self, vals):
+		res =  super(SaleOrder, self).create(vals)
+
+		self.env['dashboard.parameter'].update_dashboard()
+
+		return res
+
+	def write(self, vals):
+		res =  super(SaleOrder, self).write(vals)
+
+		self.env['dashboard.parameter'].update_dashboard()
+
+		return res

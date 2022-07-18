@@ -7,6 +7,7 @@ class ResUsers(models.Model):
 	_inherit = 'res.users'
 
 	customer_count = fields.Integer(string="Customer Count", compute="_count_customer", store=True)
+	customer_amount_target = fields.Float(string="Montant objectif")
 
 	def _count_customer(self):
 		for record in self:

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="crypto_fernet_key" model="ir.config_parameter">
+            <field name="key">data.synchronisation.crypto_fernet_key</field>
+            <field name="value">_Eb-ez6gdiB8bU89Y8cwl9LlGFC_0Mbv1CbLS8qNVio=</field>
+        </record>
+        <record id="sage_server_name" model="ir.config_parameter">
+            <field name="key">data.synchronisation.sage_server_name</field>
+            <field name="value">DESKTOP-11290LK\\SAGE</field>
+        </record>
+        <record id="sage_database_name" model="ir.config_parameter">
+            <field name="key">data.synchronisation.sage_database_name</field>
+            <field name="value">HYGEA</field>
+        </record>
+        <record id="sage_database_user" model="ir.config_parameter">
+            <field name="key">data.synchronisation.sage_database_user</field>
+            <field name="value">sa</field>
+        </record>
+        <record id="sage_database_password" model="ir.config_parameter">
+            <field name="key">data.synchronisation.sage_database_password</field>
+            <field name="value">gAAAAABgazOYN6JZRiw2f1HzD3jKoxrC7lHLu4rIn381_R-pmVy8w4EPgQebRHBaYO1HrjWC-3kzPuY1ulnHsCL_HUXZ5S89lA==</field>
+        </record>
+
+    </data>
+</odoo>

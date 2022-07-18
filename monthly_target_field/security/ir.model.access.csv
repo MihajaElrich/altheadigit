@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_monthly_target_field_monthly_target_field,monthly_target_field.monthly_target_field,model_monthly_target_field_monthly_target_field,base.group_user,1,1,1,1
