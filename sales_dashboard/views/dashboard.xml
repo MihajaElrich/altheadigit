@@ -251,7 +251,7 @@
 			<field name="usage">menu</field>
 			<field name="context">{}</field>
 			<field name="view_id" ref="sales_dashboard_view"/>
-			<field name="search_view_id" ref="dashboard_target_filter_view_search"/>
+			<!-- <field name="search_view_id" ref="dashboard_target_filter_view_search"/> -->
 		</record>
 
 		<!-- Action to open the target dashboard -->
